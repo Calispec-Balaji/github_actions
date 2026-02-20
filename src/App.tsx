@@ -5,9 +5,9 @@ function App() {
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '24px', fontFamily: 'sans-serif' }}>
+    <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '24px', fontFamily: 'sans-serif' }}>
       <h1 style={{ fontSize: '2rem', margin: 0 }}>🚀 Deployment Pipeline Test</h1>
-      <p style={{ color: '#888', margin: 0 }}>Lighthouse CI + Cloudflare Pages</p>
+      <p style={{ color: '#aaaaaa', margin: 0 }}>Lighthouse CI + Cloudflare Pages</p>
 
       <div style={{ display: 'flex', gap: '12px' }}>
         <div style={{ padding: '16px 24px', background: '#1a1a1a', borderRadius: '8px', textAlign: 'center' }}>
@@ -34,7 +34,7 @@ function App() {
       {status === 'success' && (
         <p style={{ color: '#4ade80', fontWeight: 'bold' }}>✅ UI is working correctly!</p>
       )}
-    </div>
+    </main>
   )
 }
 

@@ -5,7 +5,6 @@ module.exports = {
       numberOfRuns: 3,
     },
     assert: {
-      preset: 'lighthouse:recommended',
       assertions: {
         'categories:performance': ['error', { minScore: 0.9 }],
         'categories:accessibility': ['warn', { minScore: 0.9 }],
