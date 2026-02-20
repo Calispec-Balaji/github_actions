@@ -1,6 +1,16 @@
 import { useState } from 'react'
 import './App.css'
 
+// ⚠️ PERFORMANCE TEST: Heavy blocking computation — intentionally drops Lighthouse score
+function simulateHeavyTask() {
+  const start = Date.now()
+  while (Date.now() - start < 3000) {
+    // Block main thread for 3 seconds → tanks TBT → performance drops below 90
+    Math.sqrt(Math.random() * 999999)
+  }
+}
+simulateHeavyTask()
+
 function App() {
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
