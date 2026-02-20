@@ -1,34 +1,40 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '24px', fontFamily: 'sans-serif' }}>
+      <h1 style={{ fontSize: '2rem', margin: 0 }}>🚀 Deployment Pipeline Test</h1>
+      <p style={{ color: '#888', margin: 0 }}>Lighthouse CI + Cloudflare Pages</p>
+
+      <div style={{ display: 'flex', gap: '12px' }}>
+        <div style={{ padding: '16px 24px', background: '#1a1a1a', borderRadius: '8px', textAlign: 'center' }}>
+          <div style={{ fontSize: '1.5rem' }}>✅</div>
+          <div style={{ marginTop: '8px', color: '#4ade80' }}>Build</div>
+        </div>
+        <div style={{ padding: '16px 24px', background: '#1a1a1a', borderRadius: '8px', textAlign: 'center' }}>
+          <div style={{ fontSize: '1.5rem' }}>🔍</div>
+          <div style={{ marginTop: '8px', color: '#60a5fa' }}>Lighthouse</div>
+        </div>
+        <div style={{ padding: '16px 24px', background: '#1a1a1a', borderRadius: '8px', textAlign: 'center' }}>
+          <div style={{ fontSize: '1.5rem' }}>☁️</div>
+          <div style={{ marginTop: '8px', color: '#f97316' }}>Cloudflare</div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+      <button
+        onClick={() => setStatus('success')}
+        style={{ padding: '12px 32px', fontSize: '1rem', borderRadius: '8px', border: 'none', background: '#646cff', color: '#fff', cursor: 'pointer' }}
+      >
+        Test UI
+      </button>
+
+      {status === 'success' && (
+        <p style={{ color: '#4ade80', fontWeight: 'bold' }}>✅ UI is working correctly!</p>
+      )}
+    </div>
   )
 }
 
